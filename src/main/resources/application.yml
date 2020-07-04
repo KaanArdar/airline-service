@@ -1,0 +1,14 @@
+server:
+  port: 9999
+
+spring:
+  datasource:
+    default-url: jdbc:h2:kaan:testdb
+    driverClassName: org.h2.Driver
+    username: username
+    password: password
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
