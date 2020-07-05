@@ -1,10 +1,8 @@
 package com.demo.airlineservice.controller;
 
 
-
 import com.demo.airlineservice.model.dto.request.AirCarrierRequest;
 import com.demo.airlineservice.model.dto.response.AirCarrierResponse;
-import com.demo.airlineservice.model.entity.AirCarrier;
 import com.demo.airlineservice.service.AirCarrierService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
