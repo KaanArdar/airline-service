@@ -29,6 +29,7 @@ public class FlightMapper {
                 .build())
                 .flightCode(flight.getFlightCode())
                 .price(flight.getPrice())
+                .availableSeat(flight.getAvailableSeat())
                 .build();
     }
 

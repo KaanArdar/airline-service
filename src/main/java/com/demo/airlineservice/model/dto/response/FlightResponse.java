@@ -12,5 +12,6 @@ public class FlightResponse {
     private String flightCode;
     private RouteResponse routeInfo;
     private BigDecimal price;
+    private int availableSeat;
 
 }

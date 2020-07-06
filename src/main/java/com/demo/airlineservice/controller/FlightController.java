@@ -20,7 +20,7 @@ public class FlightController {
 
     @GetMapping("/{id}")
     public ResponseEntity<FlightResponse> getByFlightCode(@PathVariable(value = "id") long id){
-        return ResponseEntity.ok(flightService.retrieveFlightInfoByFlightCode(id));
+        return ResponseEntity.ok(flightService.retrieveFlightInfoByFlightId(id));
     }
 
     @PostMapping
