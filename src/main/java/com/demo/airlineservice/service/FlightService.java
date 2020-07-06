@@ -7,6 +7,8 @@ public interface FlightService {
 
     void generateFlight(FlightRequest flightRequest);
 
-    FlightResponse retrieveFlightInfoByFlightCode(long id);
+    FlightResponse retrieveFlightInfoByFlightId(long id);
+
+    void updateAvailableSeat(long flightId);
 
 }
