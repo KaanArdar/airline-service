@@ -16,7 +16,7 @@ import java.util.Optional;
 public class RouteServiceImpl implements RouteService {
 
     private final String NOT_FOUND = "Entity not found!";
-    private final String UNPROCESSABLE = "Unprocessable entity!";
+    private final String UN_PROCESSABLE = "Unprocessable entity!";
 
     private final RouteRepository routeRepository;
 
@@ -29,7 +29,7 @@ public class RouteServiceImpl implements RouteService {
         Optional<Route> byRouteCode = routeRepository.findByRouteCode(routeRequest.getRouteCode());
 
         if (byRouteCode.isPresent()){
-            throw new UnprocessableEntityException(UNPROCESSABLE);
+            throw new UnprocessableEntityException(UN_PROCESSABLE);
         }
 
         Route route = routeRepository.save(RouteMapper.requestToEntity(routeRequest));
