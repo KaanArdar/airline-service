@@ -33,6 +33,9 @@ public class Ticket {
     @Column(name = "citizenship_number")
     private String citizenshipNumber;
 
+    @Column(name = "card_number")
+    private String cardNumber;
+
     @Column(name = "price")
     private BigDecimal price;
 

@@ -23,20 +23,26 @@ public class TicketServiceImpl implements TicketService {
 
     private final TicketRepository ticketRepository;
     private final FlightService flightService;
+    private final CardMaskingService cardMaskingService;
 
 
-    public TicketServiceImpl(TicketRepository ticketRepository, FlightService flightService) {
+    public TicketServiceImpl(TicketRepository ticketRepository, FlightService flightService, CardMaskingService cardMaskingService) {
         this.ticketRepository = ticketRepository;
         this.flightService = flightService;
+        this.cardMaskingService = cardMaskingService;
     }
 
     @Override
     @Transactional
     public void buyTicket(TicketRequest request) {
+
+        String maskingCard = cardMaskingService.maskCardNumber(request.getCardNumber());
+
         Optional.of(flightService.retrieveFlightInfoByFlightId(request.getFlightId()))
         .filter(flightResponse -> flightResponse.getAvailableSeat() > 0)
         .map(flightResponse -> {
-            ticketRepository.save(TicketMapper.requestToEntity(request, flightResponse.getPrice()));
+
+            ticketRepository.save(TicketMapper.requestToEntity(request,maskingCard, flightResponse.getPrice()));
             flightService.updateAvailableSeat(request.getFlightId());
             return true;
         })
