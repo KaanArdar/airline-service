@@ -12,5 +12,6 @@ public class TicketRequest {
     private String name;
     private String surname;
     private String citizenshipNumber;
+    private String cardNumber;
 
 }
