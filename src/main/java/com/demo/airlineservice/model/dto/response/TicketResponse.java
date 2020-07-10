@@ -16,5 +16,6 @@ public class TicketResponse {
     private long createdDate;
     private BigDecimal price;
     private FlightResponse flightInfo;
+    private String cardNumber;
 
 }
